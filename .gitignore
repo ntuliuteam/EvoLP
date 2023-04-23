@@ -1,0 +1,7 @@
+logs*
+*.pth.tar
+*__pycache__
+*.mat
+*.m
+*.git*
+*.idea
