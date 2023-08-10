@@ -33,7 +33,7 @@ Run *matlab_train.m* in Matlab.
 ```shell
 ~ $ cd Predictor_EDLAB
 ```
-In the *RlLatency class* in *predictor.py*, modify *self.device* to include your &lt;devicename &gt; and *self.py_path* to point to the path of python in your &lt;devicename&gt. Then train the model with predictor:
+In the *RlLatency class* in *predictor.py*, modify *self.device* to include your <devicename>; and *self.py_path* to point to the path of python in your <devicename>. Then train the model with predictor:
 ```shell
 ~ $ cd Model_Compress
 ~ $ python train_imagenet_example.py -a vgg16 --save ./logs-vgg16-latency40-tx2 --lr 0.01 <PATH/TO/imagenet_100/> --our 1 -sr --ssr 0.001 --epochs 90 --batch-size 128 --latency 40 --device tx2 --zerobn 30
