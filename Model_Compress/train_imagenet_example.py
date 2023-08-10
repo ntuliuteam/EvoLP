@@ -186,15 +186,13 @@ def zeroBN(model, args):
         if not args.get_real_latency_thread.is_alive():
             print('r:', args.lat, args.x_[-1])
             args.y_.append(args.lat)
-            args.coeff_ = np.polyfit(args.x_, args.y_, 1)
+            args.coeff_ = np.polyfit(args.x_, args.y_, 1) # after testing, if polyfit can achieve high accuracy, no need EM and SGD. But if polyfit cannot achieve high accuracy, EM should be used.
             del args.get_real_latency_thread
             args.appendx = True
     else:
-        # print(cur_cfg)
         for cur_i in range(len(cur_cfg)):
             if cur_cfg[cur_i] == 0:
                 cur_cfg[cur_i] = 1
-        # print(cur_cfg)
         args.get_real_latency_thread = threading.Thread(target=args.real_.run_model, args=(cur_cfg, args))
         args.get_real_latency_thread.start()
         args.appendx = False
